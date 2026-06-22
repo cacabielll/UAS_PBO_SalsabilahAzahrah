@@ -22,7 +22,9 @@ class KaryawanKontrak extends Karyawan {
         return $result;
     }
 
-    // Implementasi abstract method: gaji bersih = hari kerja x gaji dasar (tanpa tambahan)
+    // Tahap 5 - Overriding hitungGajiBersih():
+    // Gaji bersih = hari_kerja_masuk * gaji_dasar_per_hari
+    // (penggajian murni berdasarkan jumlah hari kehadiran, tanpa tunjangan)
     public function hitungGajiBersih() {
         return $this->hariKerjaMasuk * $this->gajiDasarPerHari;
     }
@@ -30,9 +32,9 @@ class KaryawanKontrak extends Karyawan {
     // Implementasi abstract method: profil spesifik Karyawan Kontrak
     public function tampilkanProfilKaryawan() {
         return [
-            'jenis'                 => 'Kontrak',
-            'durasi_kontrak_bulan'  => $this->durasiKontrakBulan ?? '-',
-            'agensi_penyalur'       => $this->agensiPenyalur     ?? '-',
+            'jenis'                => 'Kontrak',
+            'durasi_kontrak_bulan' => $this->durasiKontrakBulan ?? '-',
+            'agensi_penyalur'      => $this->agensiPenyalur     ?? '-',
         ];
     }
 }

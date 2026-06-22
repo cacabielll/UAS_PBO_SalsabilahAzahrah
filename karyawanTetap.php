@@ -22,7 +22,9 @@ class KaryawanTetap extends Karyawan {
         return $result;
     }
 
-    // Implementasi abstract method: gaji bersih = (hari kerja x gaji dasar) + tunjangan kesehatan
+    // Tahap 5 - Overriding hitungGajiBersih():
+    // Gaji bersih = (hari_kerja_masuk * gaji_dasar_per_hari) + tunjangan_kesehatan
+    // (mendapatkan tambahan tunjangan kesehatan/keluarga yang besarnya bervariasi)
     public function hitungGajiBersih() {
         return ($this->hariKerjaMasuk * $this->gajiDasarPerHari) + ($this->tunjanganKesehatan ?? 0);
     }

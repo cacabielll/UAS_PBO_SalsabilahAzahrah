@@ -11,7 +11,7 @@ class KaryawanMagang extends Karyawan {
     public function __construct($id_karyawan, $nama_karyawan, $departemen, $hariKerjaMasuk, $gajiDasarPerHari, $uangSakuBulanan, $sertifikatKampusMerdeka) {
         parent::__construct($id_karyawan, $nama_karyawan, $departemen, $hariKerjaMasuk, $gajiDasarPerHari);
 
-        $this->uangSakuBulanan        = $uangSakuBulanan;
+        $this->uangSakuBulanan         = $uangSakuBulanan;
         $this->sertifikatKampusMerdeka = $sertifikatKampusMerdeka;
     }
 
@@ -22,9 +22,12 @@ class KaryawanMagang extends Karyawan {
         return $result;
     }
 
-    // Implementasi abstract method: gaji bersih = (hari kerja x gaji dasar) + uang saku bulanan
+    // Tahap 5 - Overriding hitungGajiBersih():
+    // Gaji bersih = (hari_kerja_masuk * gaji_dasar_per_hari) * 0.80
+    // (potongan 20% dari plafon harian untuk biaya program orientasi,
+    //  pelatihan, atau asuransi kerja intern)
     public function hitungGajiBersih() {
-        return ($this->hariKerjaMasuk * $this->gajiDasarPerHari) + ($this->uangSakuBulanan ?? 0);
+        return ($this->hariKerjaMasuk * $this->gajiDasarPerHari) * 0.80;
     }
 
     // Implementasi abstract method: profil spesifik Karyawan Magang
