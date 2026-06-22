@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/koneksi/koneksi.php';
+require_once __DIR__ . '/koneksi.php';
 
 abstract class Karyawan extends Database {
 
